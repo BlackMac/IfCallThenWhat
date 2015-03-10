@@ -1,0 +1,13 @@
+/* CSS declarations go here */
+.video-onboarding {
+  max-width:480px;
+  max-height:320px;
+}
+
+
+@media only screen
+and (max-width : 768px) {
+  .text-shrink-sm {
+    font-size:0.6em;
+  }
+}
