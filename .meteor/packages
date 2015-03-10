@@ -7,9 +7,8 @@
 meteor-platform
 autopublish
 insecure
-http-methods
+cfs:http-methods
 nemo64:bootstrap
 less
 momentjs:moment
 matteodem:server-session
-chartjs
