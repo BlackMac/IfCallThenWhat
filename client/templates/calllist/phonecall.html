@@ -1,0 +1,10 @@
+<template name="phonecall">
+  <li class="list-group-item {{#if active}}call-active{{/if}}">
+    {{#if rejected}}
+      <span class="glyphicon glyphicon-remove-sign reject-icon" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Configure sipgate.io to use this link for incoming and outgoing calls."></span>
+    {{else}}
+      <span class="glyphicon glyphicon-ok-sign accept-icon" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Configure sipgate.io to use this link for incoming and outgoing calls."></span>
+    {{/if}}
+    <span class="badge">{{datetime.toLocalTimeString}}</span>
+    Anruf von {{from}}</li>
+</template>

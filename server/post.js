@@ -6,4 +6,4 @@ parsePost = function(input) {
     result[divided[0]] = divided[1];
   });
   return result;
-}
+};
