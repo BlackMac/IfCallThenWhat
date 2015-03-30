@@ -1,13 +1,11 @@
 <template name="calllist">
   <div class="row">
   {{#if calls.count}}
-    <div class="col-md-5">
     <ul class="list-group">
       {{#each calls}}
         {{> phonecall}}
       {{/each}}
     </ul>
-    </div>
   {{else}}
     <div class="jumbotron text-center">
       {{#if onboarding}}

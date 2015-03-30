@@ -1,10 +1,16 @@
 <template name="phonecall">
-  <li class="list-group-item {{#if active}}call-active{{/if}}">
+  <li class="list-group-item {{#if active}}active{{/if}}">
     {{#if rejected}}
-      <span class="glyphicon glyphicon-remove-sign reject-icon" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Configure sipgate.io to use this link for incoming and outgoing calls."></span>
+      <img src="call_rejected.png" alt="abgelehnt" class="call-mark">
     {{else}}
-      <span class="glyphicon glyphicon-ok-sign accept-icon" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Configure sipgate.io to use this link for incoming and outgoing calls."></span>
+      {{#if isOutgoing}}
+
+        <h4>{{to}} <img src="call_out.png" alt="ausgehend" class="call-mark"></h4>
+      {{ else }}
+
+        <h4>{{from}} <img src="call_in.png" alt="eingehend" class="call-mark"></h4>
+      {{/if}}
     {{/if}}
     <span class="badge">{{datetime.toLocalTimeString}}</span>
-    Anruf von {{from}}</li>
+    Anruf von {{from}} auf {{to}}</li>
 </template>

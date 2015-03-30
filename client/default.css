@@ -13,3 +13,10 @@
 .call-active {
   background-color:#eeeeee;
 }
+
+.call-mark {
+  width:14px;
+  opacity: 0.4;
+  vartical-align:top;
+  margin:0 0 4px 12px;
+}
