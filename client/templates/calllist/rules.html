@@ -1,0 +1,51 @@
+<template name="rules">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Bedingungen</label>
+      <p>
+        <div class="btn-group" role="group">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              Alle Anrufe
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Alle Anrufe</a></li>
+              <li><a href="#">Eingehende Anrufe</a></li>
+              <li><a href="#">Ausgehende Anrufe</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              mit beliebigen Rufnummern
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">mit beliebigen Rufnummern</a></li>
+              <li><a href="#">von bestimmten Rufnummern</a></li>
+              <li><a href="#">auf bestimmte Rufnummern</a></li>
+            </ul>
+          </div>
+        </div><!-- /input-group -->
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Aktionen</label>
+      <div class="btn-group btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-default active">
+            <input type="radio" name="inputWalls" id="inputWalls" value="allow" checked>
+        durchstellen </label>
+        <label class="btn btn-default">
+            <input type="radio" name="inputWalls" id="inputWalls" value="deny">
+        ablehnen </label>
+        <label class="btn btn-default">
+            <input type="radio" name="inputWalls" id="inputWalls" value="busy">
+        besetzt </label>
+        <label class="btn btn-default">
+            <input type="radio" name="inputWalls" id="inputWalls" value="forward">
+        weiterleiten </label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-block">hinzufügen</button>
+  </form>
+</template>

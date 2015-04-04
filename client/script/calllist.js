@@ -1,5 +1,6 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
+  $('.dropdown-toggle').dropdown();
 });
 
 Template.onboarding_howto.helpers({

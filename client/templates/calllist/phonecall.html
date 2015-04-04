@@ -4,13 +4,16 @@
       <img src="call_rejected.png" alt="abgelehnt" class="call-mark">
     {{else}}
       {{#if isOutgoing}}
-
+        <span class="label label-info label-small pull-right">out</span>
         <h4>{{to}} <img src="call_out.png" alt="ausgehend" class="call-mark"></h4>
       {{ else }}
 
+        <span class="label label-success pull-right label-small">in</span>
         <h4>{{from}} <img src="call_in.png" alt="eingehend" class="call-mark"></h4>
+
       {{/if}}
     {{/if}}
     <span class="badge">{{datetime.toLocalTimeString}}</span>
-    Anruf von {{from}} auf {{to}}</li>
+    Anruf von {{from}} auf {{to}}
+  </li>
 </template>

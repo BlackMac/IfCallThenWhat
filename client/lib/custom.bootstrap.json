@@ -11,8 +11,8 @@
   "buttons":              true,
 
   "glyphicons":           true,
-  "button-groups":        false,
-  "input-groups":         false,
+  "button-groups":        true,
+  "input-groups":         true,
   "navs":                 true,
   "navbar":               true,
   "breadcrumbs":          false,
@@ -29,10 +29,10 @@
   "panels":               true,
   "responsive-embed":     true,
   "wells":                false,
-  "close":                false,
+  "close":                true,
 
-  "component-animations": false,
-  "dropdowns":            false,
+  "component-animations": true,
+  "dropdowns":            true,
   "modals":               false,
   "tooltip":              true,
   "popovers":             false,
@@ -40,12 +40,12 @@
 
   "affix":                false,
   "alert":                false,
-  "button":               false,
-  "collapse":             false,
+  "button":               true,
+  "collapse":             true,
   "scrollspy":            false,
   "tab":                  false,
   "transition":           false,
 
-  "utilities":            false,
-  "responsive-utilities": false
+  "utilities":            true,
+  "responsive-utilities": true
 }}
