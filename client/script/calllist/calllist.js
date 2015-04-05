@@ -12,7 +12,6 @@ Template.calllist.helpers({
     return Session.get("onboarding")!==1;
   },
   calls: function () {
-    var userId = window.location.href.split("/").pop();
-    return Calls.find({ user:userId }, { sort:{ datetime:-1 }});
+    return Calls.find({ user:SessionToken.get() }, { sort:{ datetime:-1 }});
   }
 });

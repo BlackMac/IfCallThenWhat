@@ -1,0 +1,47 @@
+<template name="rules_form">
+  <form id="rulesForm">
+    <div class="form-group">
+        <div class="btn-group" role="group">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              Alle Anrufe
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Alle Anrufe</a></li>
+              <li><a href="#">Eingehende Anrufe</a></li>
+              <li><a href="#">Ausgehende Anrufe</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              mit beliebigen Rufnummern
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">mit beliebigen Rufnummern</a></li>
+              <li><a href="#">von bestimmten Rufnummern</a></li>
+              <li><a href="#">auf bestimmte Rufnummern</a></li>
+            </ul>
+          </div>
+        </div><!-- /input-group -->
+    </div>
+    <div class="form-group">
+      <div class="btn-group btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-default active">
+            <input type="radio" name="rulesAction" id="rulesAction" value="allow" checked>
+            <i class="fa fa-bell text-success"></i> durchstellen </label>
+        <label class="btn btn-default">
+            <input type="radio" name="rulesAction" id="rulesAction" value="deny">
+            <i class="fa fa-ban text-danger"></i> ablehnen </label>
+        <label class="btn btn-default">
+            <input type="radio" name="rulesAction" id="rulesAction" value="busy">
+            <i class="fa fa-user-times text-warning"></i> besetzt </label>
+        <label class="btn btn-default">
+            <input type="radio" name="rulesAction" id="rulesAction" value="voicemail">
+            <i class="fa fa-microphone text-info"></i> zur voicemail </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" id="rulesAdd">hinzufügen</button>
+  </form>
+</template>
