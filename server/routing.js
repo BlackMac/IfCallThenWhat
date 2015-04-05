@@ -39,7 +39,7 @@ HTTP.methods({
         from: post.from,
         to: post.to,
         direction: post.direction,
-        active: true,
+        active: false,
         rejected: reject.count()>0,
         datetime: new Date()
       });

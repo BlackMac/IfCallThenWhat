@@ -1,12 +1,7 @@
-<template name="calllist">
-      <div class="col-md-7">
-        <ul class="list-group">
-          {{#each calls}}
-            {{> calllist_call}}
-          {{/each}}
-        </ul>
-      </div>
-      <div class="col-md-5">
-        {{> rules}}
-      </div>
+<template name="calllist">  
+  <ul class="list-group">
+    {{#each calls}}
+      {{> calllist_call}}
+    {{/each}}
+  </ul>
 </template>
