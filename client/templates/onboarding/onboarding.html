@@ -1,0 +1,11 @@
+<template name="onboarding">
+  <div class="container">
+    <div class="jumbotron text-center">
+      {{#if onboardingHowtoRead}}
+        {{> onboarding_howto}}
+      {{else}}
+        {{> onboarding_waiting}}
+      {{/if}}
+    </div>
+  </div>
+</template>
