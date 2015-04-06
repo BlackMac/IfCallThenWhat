@@ -1,3 +1,3 @@
-# If Call The What?
+# If Call Then What?
 
 An experiment with [sipgate.io](http://sipgate.io) and [Meteor](meteor.com)
