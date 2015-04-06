@@ -1,5 +1,3 @@
-
-
 WebApp.connectHandlers
 .use(function(req, res, next) {
   // 307 Temporary Redirect
@@ -13,8 +11,9 @@ WebApp.connectHandlers
       'Location': '/' + token
     });
     res.end();
+  } else {
+    next();
   }
-  next();
 });
 
 HTTP.methods({
