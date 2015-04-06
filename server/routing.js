@@ -21,6 +21,7 @@ HTTP.methods({
 
       if (typeof data !== "undefined") {
         var post = parsePost(data.toString());
+        var responseObject = ResponseIo.get(post);
 
         Calls.update({ active:true }, { $set: { active:false }});
         Calls.insert({
@@ -30,10 +31,11 @@ HTTP.methods({
           direction: post.direction,
           active: false,
           rejected: false, //reject.count()>0,
-          datetime: new Date()
+          datetime: new Date(),
+          rule: responseObject.ruleId
         });
 
-        return '<?xml version="1.0" encoding="UTF-8"?><Response></Response>';
+        return responseObject.response;
       } else {
         this.setContentType('application/xml');
         return '<?xml version="1.0" encoding="UTF-8"?><Response><!--empty request--></Response>';

@@ -30,3 +30,10 @@ Template.rules_item.helpers({
     return readableText+".";
   }
 });
+
+Template.rules_item.events({
+  'click .list-delete': function(event) {
+    event.preventDefault();
+    Rules.remove(this._id);
+  }
+});
