@@ -1,47 +1,62 @@
 <template name="rules_form">
-  <form id="rulesForm">
-    <div class="form-group">
-        <div class="btn-group" role="group">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              Alle Anrufe
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Alle Anrufe</a></li>
-              <li><a href="#">Eingehende Anrufe</a></li>
-              <li><a href="#">Ausgehende Anrufe</a></li>
-            </ul>
+  <div class="panel panel-info">
+    <div class="panel-heading">Neue Regel</div>
+    <div class="panel-body">
+      <form id="rulesForm">
+        <div class="form-group">
+          <label for="filterDirection">Filter</label>
+          <div class="form-inline">
+            <select class="form-control" id="selectDirection">
+              <option value="*">Alle Anrufe</option>
+              <option value="in">Eingehende Anrufe</option>
+              <option value="out">Ausgehende Anrufe</option>
+            </select>
+            <select class="form-control" id="selectNumbers">
+              <option value="*">immer</option>
+              <option value="from">von bestimmten Rufnummern</option>
+              <option value="to">auf bestimmte Rufnummern</option>
+              <!--<option value="time">zu bestimmten Uhrzeiten</option>-->
+            </select>
           </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              mit beliebigen Rufnummern
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">mit beliebigen Rufnummern</a></li>
-              <li><a href="#">von bestimmten Rufnummern</a></li>
-              <li><a href="#">auf bestimmte Rufnummern</a></li>
-            </ul>
+        </div>
+        <div class="form-group hidden" id="filterNumbersGroup">
+          <div class="input-group">
+            <span class="input-group-addon" id="phonenumberLabel"><i class="fa fa-phone-square"></i></span>
+            <input type="text" class="form-control" id="filterNumbers" placeholder="49211000000" value="*" aria-describedby="phonenumberLabel">
+            <span class="input-group-addon"><i class="fa fa-question-circle"></i></span>
           </div>
-        </div><!-- /input-group -->
+        </div>
+        <div class="form-group">
+          <label for="filterDirection">Aktionen</label>
+          <div>
+            <div class="btn-group btn-group-justified" data-toggle="buttons">
+              <label class="btn btn-default active square">
+                  <input type="radio" name="rulesAction" id="rulesAction" value="allow" checked>
+                  <i class="fa fa-bell text-success"></i>
+                  <wbr><span class="text-shrink-xs">durchstellen</span>
+              </label>
+              <label class="btn btn-default square">
+                  <input type="radio" name="rulesAction" id="rulesAction" value="deny">
+                  <i class="fa fa-ban text-danger"></i>
+                  <wbr><span class="text-shrink-xs">ablehnen</span>
+              </label>
+              <label class="btn btn-default square">
+                  <input type="radio" name="rulesAction" id="rulesAction" value="busy">
+                  <i class="fa fa-user-times text-warning"></i>
+                  <wbr><span class="text-shrink-xs">besetzt</span>
+              </label>
+              <label class="btn btn-default square">
+                  <input type="radio" name="rulesAction" id="rulesAction" value="voicemail">
+                  <i class="fa fa-microphone text-info"></i>
+                  <wbr><span class="text-shrink-xs">zur voicemail</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" id="rulesAdd">hinzufügen</button>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <div class="btn-group btn-group-justified" data-toggle="buttons">
-        <label class="btn btn-default active">
-            <input type="radio" name="rulesAction" id="rulesAction" value="allow" checked>
-            <i class="fa fa-bell text-success"></i> durchstellen </label>
-        <label class="btn btn-default">
-            <input type="radio" name="rulesAction" id="rulesAction" value="deny">
-            <i class="fa fa-ban text-danger"></i> ablehnen </label>
-        <label class="btn btn-default">
-            <input type="radio" name="rulesAction" id="rulesAction" value="busy">
-            <i class="fa fa-user-times text-warning"></i> besetzt </label>
-        <label class="btn btn-default">
-            <input type="radio" name="rulesAction" id="rulesAction" value="voicemail">
-            <i class="fa fa-microphone text-info"></i> zur voicemail </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block" id="rulesAdd">hinzufügen</button>
-  </form>
+  </div>
 </template>

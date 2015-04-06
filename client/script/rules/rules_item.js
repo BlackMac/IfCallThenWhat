@@ -18,9 +18,9 @@ Template.rules_item.helpers({
     readableText += directions[this.conditions.direction];
 
     if (this.conditions.number.to !== "*") {
-      readableText += "auf ".formatNumber(this.conditions.number.to);
+      readableText += " auf "+formatNumber(this.conditions.number.to);
     } else if (this.conditions.number.from !== "*") {
-      readableText += "von ".formatNumber(this.conditions.number.from);
+      readableText += " von "+formatNumber(this.conditions.number.from);
     } else {
       readableText += " mit beliebigen Rufnummern";
     }
@@ -28,7 +28,5 @@ Template.rules_item.helpers({
     readableText += actions[this.action.type];
 
     return readableText+".";
-    //"{{conditions.direction}} - {{conditions.number.from}},
-    //{{conditions.number.to}}: {{action.type}}";
   }
 });
