@@ -1,3 +1,5 @@
+
+
 WebApp.connectHandlers
 .use(function(req, res, next) {
   // 307 Temporary Redirect
@@ -22,7 +24,7 @@ HTTP.methods({
       if (typeof data !== "undefined") {
         var post = parsePost(data.toString());
         var responseObject = ResponseIo.get(post);
-
+        SessionToken.set(this.params.userId);
         Calls.update({ active:true }, { $set: { active:false }});
         Calls.insert({
           user: this.params.userId,

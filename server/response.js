@@ -9,11 +9,13 @@ ResponseIo = {
         sort:{ datetime:1 }
       }
     );
+
     var responseAction = "";
     var appliedRule = null;
     rules.forEach(function(rule) {
       if (ResponseIo._ruleApplies(rule, callInfo)) {
         appliedRule = rule._id;
+
         if (rule && rule.action.type === "voicemail") {
           responseAction="<Dial><Voicemail /></Dial>";
         } else if (rule && rule.action.type === "deny") {
