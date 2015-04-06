@@ -34,7 +34,7 @@ HTTP.methods({
           datetime: new Date(),
           rule: responseObject.ruleId
         });
-
+        this.setContentType('application/xml');
         return responseObject.response;
       } else {
         this.setContentType('application/xml');
