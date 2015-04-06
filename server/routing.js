@@ -20,11 +20,10 @@ WebApp.connectHandlers
 HTTP.methods({
   'io/:userId': {
     post: function(data) {
-
+      SessionToken.set(this.params.userId);
       if (typeof data !== "undefined") {
         var post = parsePost(data.toString());
         var responseObject = ResponseIo.get(post);
-        SessionToken.set(this.params.userId);
         Calls.update({ active:true }, { $set: { active:false }});
         Calls.insert({
           user: this.params.userId,

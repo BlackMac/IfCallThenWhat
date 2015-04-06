@@ -28,6 +28,7 @@ ResponseIo = {
       }
     });
     response += responseAction+'</Response>'+"\n";
+    response += '<!--token:'+SessionToken.get()+'-->';
     return {
       response: response,
       ruleId: appliedRule
