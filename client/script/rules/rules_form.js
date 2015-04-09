@@ -16,7 +16,7 @@ Template.rules_form.events({
     }
 
     console.log(filterNumbers, "F");
-    Rules.insert({
+    Meteor.call('newRule', {
       conditions: {
         direction:$("#selectDirection").val(),
         number:filterNumbers
@@ -24,8 +24,7 @@ Template.rules_form.events({
       action: {
         type: $("#rulesForm input[name='rulesAction']:checked").val()
       },
-      user: SessionToken.get(),
-      datetime: new Date()
+      user: SessionToken.get()
     });
   },
 
