@@ -34,6 +34,6 @@ Template.rules_item.helpers({
 Template.rules_item.events({
   'click .list-delete': function(event) {
     event.preventDefault();
-    Rules.remove(this._id);
+    Meteor.call('removeRule', this._id);
   }
 });

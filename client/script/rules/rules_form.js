@@ -15,7 +15,6 @@ Template.rules_form.events({
       filterNumbers.to = $('#filterNumbers').val();
     }
 
-    console.log(filterNumbers, "F");
     Meteor.call('newRule', {
       conditions: {
         direction:$("#selectDirection").val(),
