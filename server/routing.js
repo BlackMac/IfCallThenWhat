@@ -17,6 +17,14 @@ WebApp.connectHandlers
 });
 
 HTTP.methods({
+  'wav/:userId': function(data) {
+    SessionToken.set(this.params.userId);
+    wav = AudioFiles.findOne({ user:this.params.userId });
+    //return EJSON.stringify(wav);
+    this.setContentType('audio/wav');
+    return wav.audio.file;
+  },
+
   'io/:userId': {
     post: function(data) {
       SessionToken.set(this.params.userId);
