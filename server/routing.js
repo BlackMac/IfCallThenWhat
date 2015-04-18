@@ -30,7 +30,7 @@ HTTP.methods({
           to: post.to,
           direction: post.direction,
           active: false,
-          rejected: false, //reject.count()>0,
+          rejected: false,
           datetime: new Date(),
           rule: responseObject.ruleId
         });
