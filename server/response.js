@@ -9,7 +9,11 @@ ResponseIo = {
         sort:{ datetime:1 }
       }
     );
-
+/*
+    wavs = AudioFiles.find({ user:SessionToken.get() });
+    if (wavs.count()>0) {
+      response+='<Play><Url>http://calldash.sideprojects.de/wav/'+SessionToken.get()+'</Url></Play>';
+    }*/
     var responseAction = "";
     var appliedRule = null;
     rules.forEach(function(rule) {
