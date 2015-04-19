@@ -1,3 +1,6 @@
+var childProcess = Npm.require('child_process');
+var fs = Npm.require('fs');
+
 WebApp.connectHandlers
 .use(function(req, res, next) {
   // 307 Temporary Redirect
@@ -15,14 +18,25 @@ WebApp.connectHandlers
     next();
   }
 });
-
 HTTP.methods({
   'wav/:userId': function(data) {
     SessionToken.set(this.params.userId);
-    wav = AudioFiles.findOne({ user:this.params.userId });
+    wav = AudioFiles.findOne({ user:SessionToken.get() });
+
+    var filename = '/tmp/'+SessionToken.get()+".wav";
+    fs.writeFileSync(filename, new Buffer(wav.audio.file));
+    childProcess.exec('sox '+filename+' -t wavpcm - rate 8000 channels 1'+ ' 2>&1 1>output && echo done! > done');
+    while (!fs.existsSync('done')) {
+    // Do nothing
+    }
+    var content = fs.readFileSync('output');
+    fs.unlinkSync('output');
+    fs.unlinkSync('done');
+    console.log('It\'s saved!');
+
     //return EJSON.stringify(wav);
     this.setContentType('audio/wav');
-    return wav.audio.file;
+    return content;
   },
 
   'io/:userId': {
