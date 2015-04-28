@@ -22,21 +22,19 @@ HTTP.methods({
   'wav/:userId': function(data) {
     SessionToken.set(this.params.userId);
     wav = AudioFiles.findOne({ user:SessionToken.get() });
+    if (wav) {
+      var filename = '/tmp/'+SessionToken.get();
+      fs.writeFileSync(filename, new Buffer(wav.audio.file));
+      var wrappedExec = Meteor.wrapAsync(childProcess.exec);
+      wrappedExec('sox '+filename+' -t wavpcm - rate 8000 channels 1'+ ' 1>output');
+      var content = fs.readFileSync('output');
+      fs.unlinkSync('output');
 
-    var filename = '/tmp/'+SessionToken.get()+".wav";
-    fs.writeFileSync(filename, new Buffer(wav.audio.file));
-    childProcess.exec('sox '+filename+' -t wavpcm - rate 8000 channels 1'+ ' 2>&1 1>output && echo done! > done');
-    while (!fs.existsSync('done')) {
-    // Do nothing
+      //return EJSON.stringify(wav);
+      this.setContentType('audio/wav');
+      return content;
     }
-    var content = fs.readFileSync('output');
-    fs.unlinkSync('output');
-    fs.unlinkSync('done');
-    console.log('It\'s saved!');
-
-    //return EJSON.stringify(wav);
-    this.setContentType('audio/wav');
-    return content;
+    return "";
   },
 
   'io/:userId': {
